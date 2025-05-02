@@ -13,7 +13,7 @@
   <h2>{{count}}</h2>
   <div>
     <button (click)="handleCount('plus')" class="btn" class="bg-red">Increment</button>
-    <button  click="handleCount('reset')" class="btn" class="bg-green">Reset</button>
+    <button click="handleCount('reset')" class="btn" class="bg-green">Reset</button>
     <button (click)="handleCount('minus')" class="btn" class="bg-black">Decrement</button>
   </div>
 </div>
@@ -23,9 +23,7 @@
 
 <h1>Event in Angualr</h1>
 <button class="btn" name="login" (click)="handleEvent($event)">Click Event</button>
-<input type="text"
-(input)="handleEvent($event)"
-name="user">
+<input type="text" (input)="handleEvent($event)" name="user">
 
 
 <h1>{{dispalyName}}</h1>
@@ -35,7 +33,7 @@ name="user">
 <button (click)="setName()">Set Value</button>
 <br>
 <h1> User Email : {{email ? email : "enter the email"}}</h1>
-<input type="text"  placeholder="Enter Email" #emailField>
+<input type="text" placeholder="Enter Email" #emailField>
 <button (click)="getEmail(emailField.value)">Get Email</button>
 <button>Set Email</button>
 
@@ -43,20 +41,118 @@ name="user">
 <h1>If Else Control | Control flow</h1>
 <button (click)="toggle1()">{{display === true ? true : false}}</button>
 @if(display){
-  <div style="width:200px; height: 200px; background-color: green;">
+<div style="width:200px; height: 200px; background-color: green;">
 
-  </div>
+</div>
 }
 <br>
 <button (click)="togglehandler()">{{toggle ? "show" : "hide"}}</button>
 
 @if(toggle){
-  <div style="background-color: gold; width: 200px; height: 200px;">
+<div style="background-color: gold; width: 200px; height: 200px;">
 
-  </div>
+</div>
 }
 @else{
-  <div style="background-color: red; width: 200px; height: 200px;" >
+<div style="background-color: red; width: 200px; height: 200px;">
 
-  </div>
+</div>
+}
+
+
+<h1>Else if Condition </h1>
+<button (click)="handleColor(1)">red</button>
+<button (click)="handleColor(2)">green</button>
+<button (click)="handleColor(3)">blue</button>
+<button (click)="handleColor(10)">otehr</button>
+<input type="text" placeholder="Enter the color name" (input)="handleInputColor($event)">
+
+@if (color === 1){
+<div style="background-color: red; width: 100px; height: 100px;">
+
+</div>
+}
+@else if (color === 2){
+<div style="background-color: green; width: 100px; height: 100px;">
+
+</div>
+}
+
+@else if (color === 3){
+<div style="background-color: blue; width: 100px; height: 100px;">
+
+</div>
+}
+@else {
+<div style="background-color: black; width: 100px; height: 100px;">
+
+</div>
+}
+<!-- switch statement -->
+@switch(colordescribe){
+@case('red'){
+<h1 style="background-color: red;">Red color</h1>
+}
+@case('green'){
+<h1 style="background-color: green;">Green Color </h1>
+}
+@case('blue'){
+<h1 style="background-color: blue;">blue color</h1>
+}
+
+}
+
+<button (click)="colordescribeHandler('red')">Red</button>
+<button (click)="colordescribeHandler('green')">Green</button>
+<button (click)="colordescribeHandler('blue')">blue</button>
+<!-- <button></button> -->
+<h1>{{users[0]}}</h1>
+@for(user of users ; track user){
+<h2>{{user}}</h2>
+}
+
+<h1>student details</h1>
+
+
+@for(student of students; track student.name;let id=$index){
+<h2>
+  <span>{{id+1}}</span>
+  <span>{{student.name}}</span>
+  <span>{{student.age}}</span>
+  <span>{{student.email}}</span>
+  <button (click)="getFullName(student.name)">Get Name</button>
+</h2>
+
+}
+<h1>{{count1()}}</h1>
+<h1>{{x}}</h1>
+
+<button (click)="updatedvalue('inc')">Increment</button>
+<button (click)="updatedvalue('dec')">Decrement</button>
+<h1>{{data()}}</h1>
+<button (click)="updateTheSignal()">update the signals</button>
+
+<h1>{{a()}}</h1>
+<button (click)="showvalue()">show siganal</button>
+<h1>{{userName()}}</h1>
+<button (click)="userName.set('amas')">updated User Name</button>
+<h1>{{counting()}}</h1>
+
+
+
+<div style="background-color: red; color: white;">dispaly heading</div>
+
+
+
+<button (click)="dispalyheadingtoggle()">{{dispalyHeading ? true : false}}</button>
+<h1>for loop contextual variable</h1>
+
+@for(user1 of user12; track user1){
+  @if($odd){
+    <h3 style="background-color: red;">this is our {{$index}} of each user {{user1}}</h3>
+  }
+  
+  @if($even){
+    <h3 style="background-color: green;">this is our {{$index}} of {{user1}} </h3>
+  }
 }

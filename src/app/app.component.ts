@@ -1,13 +1,17 @@
-import { Component, computed, effect, signal, WritableSignal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, computed, effect, model, signal, WritableSignal } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { ProfileComponent } from './profile/profile.component';
+// import { SignupComponent } from './signup/signup.component';
+// import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
 import { single } from 'rxjs';
+import { NgFor, NgIf } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @Component({
   selector: 'app-root',
-  imports: [LoginComponent, SignupComponent, ProfileComponent],
+  imports: [LoginComponent,FormsModule,NgIf,NgFor,RouterLink,RouterOutlet,HeaderComponent,ProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -182,7 +186,58 @@ export class AppComponent {
 // odd and even
 // empty block for loop 
 user12 = ["muhammad","anas","Muhammad" ,"riaz" ,"ali", "khan" , "zahid",'shan']
+// two way data binding
+name1 = "anas"
+counts = model<number>(0)
+updateCounts(amount:number):void {
+  this.counts.update(curr=> curr + amount)
+}
+
+task = ""
+taskList:{id:number,task:string}[]=[]
+
+addTask(){
+  this.taskList.push({id : this.taskList.length+1,task:this.task})
+  this.task = ""
+  console.log(this.taskList)
+}
+deletetask(taskId : number){
+  this.taskList = this.taskList.filter(item=> item.id != taskId)
+  console.log("🚀 ~ AppComponent ~ deletetask ~ this.taskList:", this.taskList)
+}
+editTask(taskId : number){
+  const editTask = this.taskList.find(item=> item.id === taskId)
+  if(editTask){
+    this.task = editTask.task 
+  }
 
 
- 
+}
+show = false
+member = ["khan","anas","ali","muhammad"]
+studentsData = [
+  {
+    name : "Anas",
+    age : 21,
+    emial : "riazanus568@gmail.com"
+  },
+  {
+    name : "Muhammad",
+    age : 31,
+    emial : "Muhammad1213@gmail.com"
+  },
+  {
+    name : "Ali",
+    age : 12,
+    email : "Ali1213@gmail.com"
+  }
+]
+login = true
+handleUserAuth(){
+  this.login =! this.login
+}
+block = 0
+updateTheBlock(){
+  this.block++
+}
 }

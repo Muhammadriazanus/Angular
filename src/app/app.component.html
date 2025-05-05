@@ -156,3 +156,53 @@
     <h3 style="background-color: green;">this is our {{$index}} of {{user1}} </h3>
   }
 }
+<!-- <input [(ngModel)]="name1" type="text" placeholder="Enter a name">
+<h1> {{name1}} </h1> -->
+<button (click)="updateCounts(1)">+</button>
+<button (click)="updateCounts(-1)">-</button>
+<span> {{counts()}} </span>
+<button>-</button>
+<h1>todo List </h1>
+<input type="text" [(ngModel)]="task" placeholder="Enter New task">
+<button (click)="addTask()">Add Task</button>
+<br>
+<!-- <span> {{task}} </span> -->
+ @for(task of taskList;track task.id){
+  <ul>
+    <li> {{task.id}} </li>
+    <li> {{task.task}} </li>
+    <button (click)="deletetask(task.id)">Delete</button>
+    <!-- <li></li> -->
+  </ul>
+ }
+ <h1 *ngIf="show">heading</h1>
+ <ul>
+  <li *ngFor="let x of member">
+    {{x}}
+  </li>
+ </ul>
+ <ul>
+  <li *ngFor="let students of studentsData">{{students.name}}  , {{students.age}}  {{students.email}} </li>
+  <!-- <li *ngFor="let students of studentsData">{{students.email}}</li> -->
+ </ul>
+<div *ngIf="login; else elseBlock"> 
+  <button (click)="handleUserAuth()"><a href="/"></a>{{login ? 'logout': "login"}}</button>
+</div>
+<ng-template #elseBlock>
+  <a href="/">login</a>
+</ng-template>
+
+<div *ngIf="block===0">
+  <h1>Heading is zero</h1>
+</div>
+<div *ngIf="block===1">
+  <h1>Heading is one</h1>
+</div>
+<div *ngIf="block===2">
+  <h1>Heading is two</h1>
+</div>
+<button (click)="updateTheBlock()">update The block</button>
+
+
+<app-header></app-header>
+<router-outlet />

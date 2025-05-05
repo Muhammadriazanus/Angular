@@ -1,12 +1,18 @@
-
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector : `app-profile`,
-    // template : `<h1>Profile Component</h1>`
-    templateUrl : './profile.component.html',
-    styleUrl : './profile.component.css'
+  selector: 'app-profile',
+  imports: [],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css'
 })
-export class ProfileComponent{
-
+export class ProfileComponent {
+constructor(private  route:ActivatedRoute){
+  
+}
+ngOnInit(){
+  let name = this.route.snapshot.paramMap.get('name')
+  console.log("🚀 ~ ProfileComponent ~ ngOnInit ~ name:", name)
+}
 }

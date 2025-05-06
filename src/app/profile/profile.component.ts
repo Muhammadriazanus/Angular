@@ -11,8 +11,11 @@ export class ProfileComponent {
 constructor(private  route:ActivatedRoute){
   
 }
+userName : string | null = ""
 ngOnInit(){
-  let name = this.route.snapshot.paramMap.get('name')
-  console.log("🚀 ~ ProfileComponent ~ ngOnInit ~ name:", name)
+  this.route.queryParams.subscribe(params=> {
+    this.userName = params['name']
+    
+  })
 }
 }

@@ -8,7 +8,7 @@
 
 
 <h1>login Components</h1> -->
-<h1>Counter App</h1>
+<!-- <h1>Counter App</h1>
 <div>
   <h2>{{count}}</h2>
   <div>
@@ -21,7 +21,7 @@
 <h1>Function call on button</h1>
 <!-- <button (click)="sum(10,20)">submit</button> -->
 
-<h1>Event in Angualr</h1>
+<!-- <h1>Event in Angualr</h1>
 <button class="btn" name="login" (click)="handleEvent($event)">Click Event</button>
 <input type="text" (input)="handleEvent($event)" name="user">
 
@@ -87,9 +87,9 @@
 <div style="background-color: black; width: 100px; height: 100px;">
 
 </div>
-}
+}  -->
 <!-- switch statement -->
-@switch(colordescribe){
+<!-- @switch(colordescribe){
 @case('red'){
 <h1 style="background-color: red;">Red color</h1>
 }
@@ -106,12 +106,12 @@
 <button (click)="colordescribeHandler('green')">Green</button>
 <button (click)="colordescribeHandler('blue')">blue</button>
 <!-- <button></button> -->
-<h1>{{users[0]}}</h1>
+<!-- <h1>{{users[0]}}</h1>
 @for(user of users ; track user){
 <h2>{{user}}</h2>
-}
+} -->
 
-<h1>student details</h1>
+<!-- <h1>student details</h1>
 
 
 @for(student of students; track student.name;let id=$index){
@@ -155,10 +155,10 @@
   @if($even){
     <h3 style="background-color: green;">this is our {{$index}} of {{user1}} </h3>
   }
-}
+}  -->
 <!-- <input [(ngModel)]="name1" type="text" placeholder="Enter a name">
 <h1> {{name1}} </h1> -->
-<button (click)="updateCounts(1)">+</button>
+<!-- <button (click)="updateCounts(1)">+</button>
 <button (click)="updateCounts(-1)">-</button>
 <span> {{counts()}} </span>
 <button>-</button>
@@ -166,16 +166,16 @@
 <input type="text" [(ngModel)]="task" placeholder="Enter New task">
 <button (click)="addTask()">Add Task</button>
 <br>
-<!-- <span> {{task}} </span> -->
+<span> {{task}} </span>
  @for(task of taskList;track task.id){
   <ul>
     <li> {{task.id}} </li>
     <li> {{task.task}} </li>
     <button (click)="deletetask(task.id)">Delete</button>
     <!-- <li></li> -->
-  </ul>
- }
- <h1 *ngIf="show">heading</h1>
+<!-- </ul> -->
+<!-- }  -->
+<!-- <h1 *ngIf="show">heading</h1>
  <ul>
   <li *ngFor="let x of member">
     {{x}}
@@ -184,15 +184,14 @@
  <ul>
   <li *ngFor="let students of studentsData">{{students.name}}  , {{students.age}}  {{students.email}} </li>
   <!-- <li *ngFor="let students of studentsData">{{students.email}}</li> -->
- </ul>
-<div *ngIf="login; else elseBlock"> 
+<!-- </ul> -->
+<!-- <div *ngIf="login; else elseBlock"> 
   <button (click)="handleUserAuth()"><a href="/"></a>{{login ? 'logout': "login"}}</button>
-</div>
-<ng-template #elseBlock>
+</div> -->
+<!-- <ng-template #elseBlock>
   <a href="/">login</a>
-</ng-template>
-
-<div *ngIf="block===0">
+</ng-template>  --> -->
+<!-- <div *ngIf="block===0">
   <h1>Heading is zero</h1>
 </div>
 <div *ngIf="block===1">
@@ -201,8 +200,126 @@
 <div *ngIf="block===2">
   <h1>Heading is two</h1>
 </div>
-<button (click)="updateTheBlock()">update The block</button>
+<button (click)="updateTheBlock()">update The block</button> -->
 
 
-<app-header></app-header>
-<router-outlet />
+<!-- <app-header></app-header>
+<router-outlet /> -->
+<!-- 
+<h1 style="text-align: center;">Basic Form</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" 
+      style="max-width: 400px; margin: auto; padding: 20px; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+
+  <!-- Name Input -->
+<!-- <input type="text" placeholder="Enter your name" formControlName="name"
+         style="width: 100%; padding: 10px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+  <div *ngIf="profileForm.get('name')?.touched">
+    <span *ngIf="profileForm.get('name')?.hasError('required')" 
+          style="color: red; font-size: 12px;">Name is required</span>
+  </div>
+  <br><br> --> -->
+
+<!-- Password Input -->
+<!-- <input type="password" placeholder="Enter a password" formControlName="password"
+         style="width: 100%; padding: 10px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+  <div *ngIf="profileForm.get('password')?.touched">
+    <span *ngIf="profileForm.get('password')?.hasError('required')" 
+          style="color: red; font-size: 12px;">Password is required</span>
+    <span *ngIf="profileForm.get('password')?.hasError('minlength')" 
+          style="color: red; font-size: 12px;">Password must be at least 6 characters</span>
+  </div>
+  <br><br> -->
+
+<!-- Email Input -->
+<!-- <input type="email" placeholder="Enter your email" formControlName="email"
+         style="width: 100%; padding: 10px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+  <div *ngIf="profileForm.get('email')?.touched">
+    <span *ngIf="profileForm.get('email')?.hasError('required')" 
+          style="color: red; font-size: 12px;">Email is required</span>
+    <span *ngIf="profileForm.get('email')?.hasError('email')" 
+          style="color: red; font-size: 12px;">Please enter a valid email</span>
+  </div>
+  <br><br>
+
+  <button type="submit" [disabled]="profileForm.invalid"
+          style="width: 100%; padding: 10px; background-color: #007bff; border: none; color: white; font-size: 16px; border-radius: 6px; cursor: pointer;"
+          [ngStyle]="{ 'background-color': profileForm.invalid ? '#aaa' : '#007bff', 'cursor': profileForm.invalid ? 'not-allowed' : 'pointer' }">
+    Submit
+  </button>
+</form> -->
+
+<!-- <div class="container">
+  <div class="row pt-6"> 
+    <div class="col-6">
+      <h4>student Portal</h4>
+    </div>
+    <div class="col-6 text-end">
+      <button class="btn btn-outline-success" (click)="openModal()">Add New </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-6">
+
+              student Name
+            </div>
+            <div class="col-6">
+              movile No 
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>City , state , pincode </p>
+          <p>Address</p>
+          <div class="card-footer text-center">
+            <p>Email</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- modal -->
+<!-- <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New Student</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div> -->
+<h1>Pass Data to Child Components</h1>
+
+
+<select #selectedUser (change)="onUserChange(selectedUser.value)" name="" id="">
+  <option value="Anas">Anas</option>
+  <option value="shan">shan</option>
+  <option value="ali">ali</option>
+  <option value="peter">peter</option>
+</select>
+<h1>Reuse Components</h1>
+
+@for(user of users;track user){
+  <div>
+    <!-- {{user}} -->
+    <app-user [user]="user" city="Karachi"></app-user>
+  </div>
+}
